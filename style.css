@@ -1,0 +1,33 @@
+html, body {
+  margin: 0px;
+  padding: 0;
+}
+
+#wrapper {
+  margin: 50px auto 0px auto;
+  width: 456px;
+}
+
+h1 {
+  float: left;
+  margin-bottom: 25px;
+}
+
+.mole {
+  border: 1px solid #ccc;
+  float: left;
+  height: 150px;
+  width: 150px;
+}
+
+.mole:hover {
+  background: #333;
+}
+
+.box-selected {
+  background: #333;
+}
+
+.clear {
+  clear: both;
+}
