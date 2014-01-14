@@ -20,11 +20,11 @@ h1 {
   width: 150px;
 }
 
-.mole:hover {
-  background: #333;
-}
+/*.mole:hover {*/
+  /*background: #333;*/
+/*}*/
 
-.box-selected {
+.hole-selected {
   background: #333;
 }
 
