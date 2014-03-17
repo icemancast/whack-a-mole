@@ -1,3 +1,4 @@
+
 var gameId, children, hole, selectedDiv, numberOfChildren;
 
 gameId = document.getElementById('game');
@@ -5,14 +6,14 @@ children = gameId.children;
 
 var mole = {
 
-  selectHole: function(children)
+  selectHole: function()
   {
     numberOfChildren = children.length;
     hole = Math.floor(Math.random() * numberOfChildren);
     return children[hole];
   },
 
-  show: function(hole)
+  show: function()
   {
     selectedDiv.className = selectedDiv.className + ' hole-selected';
   },
@@ -22,21 +23,26 @@ var mole = {
     selectedDiv.className = 'mole';
   },
 
+  hit: function()
+  {
+    selectedDiv.className = selectedDiv.className + ' mole-hit';
+    var score = document.getElementById('score');
+    score.innerHTML = parseInt(score.innerHTML) + 1;
+  }
+
 }
 
 setInterval(function() {
   selectedDiv = mole.selectHole(children);
-  mole.show(selectedDiv);
-
-  //console.log(selectedDiv);
-  //console.log(selectedDiv.id);
+  mole.show();
 
   selectedDiv.onclick = function() {
-    console.log('click');
+    mole.hit();
   }
 
   setTimeout(function() {
     mole.hide(selectedDiv);
+    selectedDiv.onclick = null;
   }, 800);
 
 }, 1500);
