@@ -24,10 +24,8 @@ h1 {
 }
 
 .box {
-  /*background: url(../images/mole.png) no-repeat;*/
   border: 1px solid #ccc;
   float: left;
-  /*height: 150px;*/
   height: 150px;
   width: 150px;
 }
