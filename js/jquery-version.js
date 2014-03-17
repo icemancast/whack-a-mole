@@ -1,24 +1,16 @@
 var mole = {
 
-  // Get Id of game div
-  //gameId: $('#game'),
   moleDivs: $('.mole'),
   selectedDiv: '',
   scoreDiv: $('#score'),
 
   init: function()
   {
-    // Get all child divs
-    //children = this.gameId.children();
-
-    //console.log(mole.moleDivs.length);
-
     // Interval for time loop
     setInterval(function() {
       // Call method to select hole randomly
       mole.selectedDiv = $(mole.selectHole());
       mole.show();
-
 
       setTimeout(function() {
         mole.hide(mole.selectedDiv);
