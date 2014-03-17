@@ -1,14 +1,17 @@
 var mole = {
 
   // Get Id of game div
-  gameId: $('#game'),
+  //gameId: $('#game'),
+  moleDivs: $('.mole'),
   selectedDiv: '',
   scoreDiv: $('#score'),
 
   init: function()
   {
     // Get all child divs
-    children = this.gameId.children();
+    //children = this.gameId.children();
+
+    //console.log(mole.moleDivs.length);
 
     // Interval for time loop
     setInterval(function() {
@@ -16,15 +19,9 @@ var mole = {
       mole.selectedDiv = $(mole.selectHole());
       mole.show();
 
-      // If click call hit method
-      mole.selectedDiv.click(function() {
-        mole.hit();
-        console.log('hit');
-      });
 
       setTimeout(function() {
         mole.hide(mole.selectedDiv);
-        //mole.selectedDiv = '';
       }, 800);
 
     }, 1500);
@@ -32,25 +29,32 @@ var mole = {
 
   selectHole: function()
   {
-    numberOfChildren = children.length;
+    numberOfChildren = mole.moleDivs.length;
     hole = Math.floor(Math.random() * numberOfChildren);
-    return children[hole];
+    return mole.moleDivs[hole];
   },
 
   show: function()
   {
-    this.selectedDiv.addClass('hole-selected');
-    //selectedDiv.className = selectedDiv.className + ' hole-selected';
+    this.selectedDiv.fadeIn(200, function() {
+
+      // If click call hit method
+      mole.selectedDiv.click(function() {
+        mole.hit();
+      });
+    });
   },
 
   hide: function()
   {
-    this.selectedDiv.removeClass('hole-selected');
+    this.selectedDiv.fadeOut(200, function() {
+      mole.selectedDiv.removeClass('mole-hit');
+    });
   },
 
   hit: function()
   {
-    this.selectedDiv.removeClass('mole-hit');
+    this.selectedDiv.addClass('mole-hit');
     score = parseInt(this.scoreDiv.html()) + 1;
     this.scoreDiv.html(score);
   }

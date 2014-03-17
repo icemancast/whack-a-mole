@@ -23,9 +23,18 @@ h1 {
   width: 20%;
 }
 
-.mole {
+.box {
+  /*background: url(../images/mole.png) no-repeat;*/
   border: 1px solid #ccc;
   float: left;
+  /*height: 150px;*/
+  height: 150px;
+  width: 150px;
+}
+
+.mole {
+  background: url(../images/mole.png) no-repeat;
+  display: none;
   height: 150px;
   width: 150px;
 }
